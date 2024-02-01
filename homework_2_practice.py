@@ -2,9 +2,9 @@
 #Amazon logo
 driver.find_element(By.XPATH, "//i[@class='a-icon a-icon-logo']")
 #Email field
-driver.find_element(By.ID, "//input[@id='ap_email']")
+driver.find_element(By.ID, 'ap_email')
 #Continue button
-driver.find_element(By.ID, "//input[@id='continue']")
+driver.find_element(By.ID, 'continue')
 #Conditions of use link
 driver.find_element(By.XPATH, "//a[contains(@href, 'condition_of_use')]")
 #Privacy Notice link
