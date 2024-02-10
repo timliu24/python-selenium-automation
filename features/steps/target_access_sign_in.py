@@ -3,10 +3,7 @@ from behave import given, when, then
 from time import sleep
 
 
-@when('Click on Sign In tab')
-def click_on_sign_in_tab(context):
-    context.driver.find_element(By.XPATH, "//span[text()='Sign in']").click()
-    sleep(1)
+
 
 @when('Click on Sign In')
 def click_on_sign_in(context):
