@@ -1,10 +1,12 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from behave import given, when, then
 from time import sleep
 
 SEARCH_FIELD = (By.ID, 'search')
 SEARCH_ICON = (By.XPATH, "//button[@data-test='@web/Search/SearchButton']")
 CART_ICON = (By.CSS_SELECTOR, "[data-test='@web/CartLink']")
+SIGN_IN_TAB = (By.XPATH, "//span[text()='Sign in']")
 HEADER = (By.CSS_SELECTOR, "[class*='UtilityHeaderWrapper']")
 HEADER_LINKS = (By.CSS_SELECTOR, "[data-test*='@web/GlobalHeader/UtilityHeader']")
 CIRCLE = (By.ID, 'utilityNav-circle')
@@ -23,14 +25,13 @@ def search_product(context, product):
 
 @when('Click on Cart icon')
 def click_cart(context):
+    context.wait.until(EC.presence_of_element_located(CART_ICON), message='Cart icon not found.')
     context.driver.find_element(*CART_ICON).click()
-    sleep(2)
 
 
 @when('Click on Sign In tab')
 def click_on_sign_in_tab(context):
-    context.driver.find_element(By.XPATH, "//span[text()='Sign in']").click()
-    sleep(1)
+    context.driver.find_element(*SIGN_IN_TAB).click()
 
 
 @when('Click on Target Circle tab')
