@@ -22,8 +22,7 @@ def click_view_cart_and_check_out(context):
 
 @then("Verify 'Your cart is empty' message is shown")
 def verify_cart_empty_message(context):
-    actual_text = context.driver.find_element(*CART_HEADER).text
-    assert 'Your cart is empty' == actual_text, f"Expected 'Your cart is empty' but got {actual_text}"
+    context.app.cart_page.verify_cart_empty_message()
 
 
 @then("Verify cart have items")

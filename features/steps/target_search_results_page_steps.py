@@ -15,14 +15,12 @@ def click_add_to_cart_icon(context, product):
 
 @then('Search results for {expected_result} are shown')
 def verify_search_results_correct(context, expected_result):
-    actual_text = context.driver.find_element(*SEARCH_RESULTS_HEADER).text
-    assert expected_result in actual_text, f'Expected word {expected_result} not in {actual_text}'
+    context.app.search_results_page.verify_search_results_correct(expected_result)
 
 
 @then('Page URL has search term {expected_part_url}')
 def verify_search_results_page_url(context, expected_part_url):
-    url = context.driver.current_url
-    assert expected_part_url in url, f'Expected {expected_part_url} not in {url}'
+    context.app.search_results_page.verify_search_results_page_url(expected_part_url)
 
 
 @when ('Click on {product}')
