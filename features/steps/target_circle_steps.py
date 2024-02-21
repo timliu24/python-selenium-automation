@@ -11,3 +11,8 @@ def verify_circle_benefits(context, expected_amount):
     expected_amount = int(expected_amount)
     circle_benefits = context.driver.find_elements(*CIRCLE_BENEFITS)
     assert len(circle_benefits) == expected_amount, f'Expected {expected_amount} links, but got {len(circle_benefits)}'
+
+
+@then('Verify that clicking though Circle tabs works')
+def verify_can_click_thru_tabs(context):
+    context.app.circle_page.verify_can_click_thru_tabs()
