@@ -8,9 +8,6 @@ class CirclePage(Page):
     TABS = (By.CSS_SELECTOR, "[class*='PageSelectionText'] a")
     BONUS_TAB = (By.CSS_SELECTOR, "[data-test='bonus-tab']")
 
-    def open_circle(self):
-        self.open('https://www.target.com/circle')
-
     def verify_can_click_thru_tabs(self):
         self.wait_element_clickable(*self.BONUS_TAB)
 

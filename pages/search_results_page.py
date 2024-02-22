@@ -4,7 +4,12 @@ from pages.base_page import Page
 
 
 class SearchResultsPage(Page):
+    FOLGERS_CLASSIC_MEDIUM = (By.ID, 'addToCartButtonOrTextIdFor13397813')
     SEARCH_RESULTS_HEADER = (By.XPATH, "//div[@data-test='resultsHeading']")
+
+    def click_add_to_cart_icon(self, product):
+        product = self.FOLGERS_CLASSIC_MEDIUM
+        self.click(*product)
 
     def verify_search_results_correct(self, expected_result):
         actual_text = self.find_element(*self.SEARCH_RESULTS_HEADER).text

@@ -4,7 +4,7 @@ from behave import given, when, then
 from time import sleep
 
 SEARCH_RESULTS_HEADER = (By.XPATH, "//div[@data-test='resultsHeading']")
-FOLGERS_CLASSIC_MEDIUM = (By.ID, 'addToCartButtonOrTextIdFor13397813')
+# FOLGERS_CLASSIC_MEDIUM = (By.ID, 'addToCartButtonOrTextIdFor13397813')
 DENIZEN_FROM_LEVIS_MENS_285 = (By.CSS_SELECTOR, "[data-test='@web/ProductCard/ProductCardImage/primary']")
 LISTINGS = (By.CSS_SELECTOR, "[data-test='@web/site-top-of-funnel/ProductCardWrapper']")
 PRODUCT_TITLE = (By.CSS_SELECTOR, "[data-test='product-title']")
@@ -16,8 +16,7 @@ SIDE_NAV_PREV_BUTTON = (By.CSS_SELECTOR, "button[aria-label='Previous']")
 
 @when('Click Add to cart icon on {product}')
 def click_add_to_cart_icon(context, product):
-    context.driver.find_element(*FOLGERS_CLASSIC_MEDIUM).click()
-
+    context.app.search_results_page.click_add_to_cart_icon(product)
 
 @when('Store product name')
 def store_product_name(context):

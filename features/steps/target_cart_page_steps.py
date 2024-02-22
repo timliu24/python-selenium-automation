@@ -2,22 +2,20 @@ from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
 
-CART_HEADER = (By.CSS_SELECTOR, "h1[class*='StyledHeading']")
-
 
 @when("Click on Options")
 def click_on_options(context):
-    context.driver.find_element(By.XPATH, "//button[@data-test='fulfillment-cell-shipping']").click()
+    context.app.cart_option_window.click_on_options()
 
 
 @when("Click Add to cart bar")
 def click_add_to_cart_bar(context):
-    context.driver.find_element(By.XPATH, "//button[@data-test='shippingButton']").click()
+    context.app.cart_option_window.click_add_to_cart_bar()
 
 
 @when("Click View cart and check out")
 def click_view_cart_and_check_out(context):
-    context.driver.find_element(By.XPATH, "//a[text()='View cart & check out']").click()
+    context.app.cart_option_window.click_view_cart_and_check_out()
 
 
 @then("Verify 'Your cart is empty' message is shown")
@@ -27,5 +25,4 @@ def verify_cart_empty_message(context):
 
 @then("Verify cart have items")
 def verify_cart_have_items(context):
-    cart_total = context.driver.find_element(By.CSS_SELECTOR, ".h-margin-b-tight.h-text-grayDark").text
-    assert "subtotal" and "item" or "items" in cart_total, f"Cart total not found."
+    context.app.cart_page.verify_cart_have_items()

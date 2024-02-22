@@ -6,7 +6,7 @@ from time import sleep
 SEARCH_FIELD = (By.ID, 'search')
 SEARCH_ICON = (By.XPATH, "//button[@data-test='@web/Search/SearchButton']")
 CART_ICON = (By.CSS_SELECTOR, "[data-test='@web/CartLink']")
-SIGN_IN_TAB = (By.XPATH, "//span[text()='Sign in']")
+
 HEADER = (By.CSS_SELECTOR, "[class*='UtilityHeaderWrapper']")
 HEADER_LINKS = (By.CSS_SELECTOR, "[data-test*='@web/GlobalHeader/UtilityHeader']")
 CIRCLE = (By.ID, 'utilityNav-circle')
@@ -28,7 +28,7 @@ def click_cart(context):
 
 @when('Click on Sign In tab')
 def click_on_sign_in_tab(context):
-    context.driver.find_element(*SIGN_IN_TAB).click()
+    context.app.header.click_on_sign_in_tab()
 
 
 @when('Click on Target Circle tab')
