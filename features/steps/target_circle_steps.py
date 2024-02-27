@@ -16,3 +16,13 @@ def verify_circle_benefits(context, expected_amount):
 @then('Verify that clicking though Circle tabs works')
 def verify_can_click_thru_tabs(context):
     context.app.circle_page.verify_can_click_thru_tabs()
+
+
+@when('Click Google Play button')
+def click_google_play_btn(context):
+    context.app.circle_page.click_google_play_btn()
+
+
+@then('Verify Google Play Target page opened')
+def verify_google_play_opened(context):
+    context.app.circle_page.verify_google_play_opened()
